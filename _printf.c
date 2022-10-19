@@ -89,6 +89,13 @@ int _printf(const char *format, ...)
 			count++;
 			_putchar(format[i]);
 		}
+		else if (format[i + 1])/* E */
+		{
+			i++;
+			count = no_struct(format[i], count, argu);
+		}
+		else/* F */
+			return (-1); 
 	}
 	va_end(argu);
 	return (count);
