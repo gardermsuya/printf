@@ -1,5 +1,25 @@
 #include "main.h"
 
+/**
+ * no_struct - a helper function that is called when theres a %something
+ * @c: the character passed after the %
+ * @count:the number of count thus far. it will be incremented
+ * @argu: the va_list that is passsed to us so we can va_arg it
+ *
+ * Description:i did not use struct like everyone else
+ * Return: the count totals
+ *
+ * A: we passed that character after the %. use it as switch condition
+ * B:if it is a char, we put char + one count
+ * C:if it is a string we check if null, if so then we put null plus 6
+ *	we also put string if not null and count the stuff
+ * D:if it is an i, do the same as d. so we put i and let it cascade down
+ *	if the number is 0 then we add 1 to counts and put a zero
+ *	else we just print the number
+ * E:if it was a % then we just plus 1 and put the %
+ * H:the default is to just print the %letter and yeah...
+ *
+ */
 int no_struct(char c, int count, va_list argu)
 {
 	int j;
@@ -7,7 +27,7 @@ int no_struct(char c, int count, va_list argu)
 
 	switch (c) /*A*/
 	{
-		case 'c':
+		case 'c': /*B*/
 			j = va_arg(argu, int);
 			count += _putchar(j);
 			break;
@@ -26,10 +46,13 @@ int no_struct(char c, int count, va_list argu)
 			else
 				count += _putstring(s);
 			break;
-		default:
+		case '%': /*E*/
+			count += _putchar('%');
+			break;
+		default: /*H*/
 			count += 2;
 			_putchar('%');
-			_putchar(c);		
+			_putchar(c);
 	}
 	return (count);
 }
