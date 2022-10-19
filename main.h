@@ -12,4 +12,4 @@ int dec_to_binary(int n);
 int _putstring(char *s);
 int print_digit(int n);
 
-#endifi
+#endif
