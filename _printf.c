@@ -24,8 +24,6 @@ int no_struct(char c, int count, va_list argu)
 {
 	int j;
 	char *s;
-	int d;
-	int i;
 
 	switch (c) /*A*/
 	{
