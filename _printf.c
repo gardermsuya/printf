@@ -95,9 +95,7 @@ int _printf(const char *format, ...)
 			count = no_struct(format[i], count, argu);
 		}
 		else
-		{
 			return (-1);
-		}
 	}
 	va_end(argu);
 	return (count);
