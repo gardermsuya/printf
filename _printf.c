@@ -48,14 +48,6 @@ int no_struct(char c, int count, va_list argu)
 			else
 				count += _putstring(s);
 			break;
-		case 'd':
-			d = va_arg(argu, int);
-			count += print_number(d);
-			break;
-		case 'i':
-			i = va_arg(argu, int);
-			count += print_digit(i);
-			break;
 		case '%': /*E*/
 			count += _putchar('%');
 			break;
